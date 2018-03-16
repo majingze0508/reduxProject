@@ -9,7 +9,7 @@ import webpackConfig from '../webpack.config.dev';
 let app = express();
 
 const compiler = webpack(webpackConfig)
-
+app.use(express.static(__dirname + '/public'));
 app.use(webpackMiddleware(compiler, {
   hot: true,
   publicPath: webpackConfig.output.publicPath,
